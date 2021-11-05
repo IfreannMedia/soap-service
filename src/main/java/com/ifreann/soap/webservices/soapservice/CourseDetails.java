@@ -1,7 +1,6 @@
 
 package com.ifreann.soap.webservices.soapservice;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
@@ -37,8 +36,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CourseDetails {
 
-    @XmlElement(namespace = "http://ifreann.com", required = true)
-    protected BigInteger id;
+    @XmlElement(namespace = "http://ifreann.com")
+    protected int id;
     @XmlElement(namespace = "http://ifreann.com", required = true)
     protected String name;
     @XmlElement(namespace = "http://ifreann.com", required = true)
@@ -47,24 +46,16 @@ public class CourseDetails {
     /**
      * Gets the value of the id property.
      * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
      */
-    public BigInteger getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
      */
-    public void setId(BigInteger value) {
+    public void setId(int value) {
         this.id = value;
     }
 
