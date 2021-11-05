@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GetCourseDetailsResponse xmlns="http://ifreann.com"
+<GetCourseDetailsResponse xmlns="http://ifreann.com/courses"
                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                          xsi:schemaLocation="http://ifreann.com/ course-details.xsd">
+                          xsi:schemaLocation="http://ifreann.com/ ../src/main/resources/course-details.xsd">
     <CourseDetails>
         <id>1</id>
         <name>Spring in 28 Minutes</name>

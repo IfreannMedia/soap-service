@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "id"
 })
-@XmlRootElement(name = "GetCourseDetailsRequest", namespace = "http://ifreann.com")
+@XmlRootElement(name = "GetCourseDetailsRequest", namespace = "http://ifreann.com/courses")
 public class GetCourseDetailsRequest {
 
-    @XmlElement(namespace = "http://ifreann.com")
+    @XmlElement(namespace = "http://ifreann.com/courses")
     protected int id;
 
     /**

@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="CourseDetails" type="{http://ifreann.com}CourseDetails"/>
+ *         &lt;element name="CourseDetails" type="{http://ifreann.com/courses}CourseDetails"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "courseDetails"
 })
-@XmlRootElement(name = "GetCourseDetailsResponse", namespace = "http://ifreann.com")
+@XmlRootElement(name = "GetCourseDetailsResponse", namespace = "http://ifreann.com/courses")
 public class GetCourseDetailsResponse {
 
-    @XmlElement(name = "CourseDetails", namespace = "http://ifreann.com", required = true)
+    @XmlElement(name = "CourseDetails", namespace = "http://ifreann.com/courses", required = true)
     protected CourseDetails courseDetails;
 
     /**

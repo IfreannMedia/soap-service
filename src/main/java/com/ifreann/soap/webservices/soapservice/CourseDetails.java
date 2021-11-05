@@ -29,18 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CourseDetails", namespace = "http://ifreann.com", propOrder = {
+@XmlType(name = "CourseDetails", namespace = "http://ifreann.com/courses", propOrder = {
     "id",
     "name",
     "description"
 })
 public class CourseDetails {
 
-    @XmlElement(namespace = "http://ifreann.com")
+    @XmlElement(namespace = "http://ifreann.com/courses")
     protected int id;
-    @XmlElement(namespace = "http://ifreann.com", required = true)
+    @XmlElement(namespace = "http://ifreann.com/courses", required = true)
     protected String name;
-    @XmlElement(namespace = "http://ifreann.com", required = true)
+    @XmlElement(namespace = "http://ifreann.com/courses", required = true)
     protected String description;
 
     /**
