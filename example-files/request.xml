@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GetCourseDetailsRequest xmlns="http://ifreann.com"
                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                         xsi:schemaLocation="http://ifreann.com course-details.xsd">
+                         xsi:schemaLocation="http://ifreann.com ../src/main/resources/course-details.xsd">
     <id>1</id>
 </GetCourseDetailsRequest>
