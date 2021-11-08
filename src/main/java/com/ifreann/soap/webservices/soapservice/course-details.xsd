@@ -27,7 +27,7 @@
     <xs:element name="GetAllCourseDetailsResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="CourseDetails" type="tns:CourseDetails"
+                <xs:element name="AllCourseDetails" type="tns:CourseDetails"
                 maxOccurs="unbounded"></xs:element>
             </xs:sequence>
         </xs:complexType>

@@ -30,6 +30,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllCourseDetailsResponse }
+     * 
+     */
+    public GetAllCourseDetailsResponse createGetAllCourseDetailsResponse() {
+        return new GetAllCourseDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link CourseDetails }
+     * 
+     */
+    public CourseDetails createCourseDetails() {
+        return new CourseDetails();
+    }
+
+    /**
+     * Create an instance of {@link GetAllCourseDetailsRequest }
+     * 
+     */
+    public GetAllCourseDetailsRequest createGetAllCourseDetailsRequest() {
+        return new GetAllCourseDetailsRequest();
+    }
+
+    /**
      * Create an instance of {@link GetCourseDetailsRequest }
      * 
      */
@@ -43,14 +67,6 @@ public class ObjectFactory {
      */
     public GetCourseDetailsResponse createGetCourseDetailsResponse() {
         return new GetCourseDetailsResponse();
-    }
-
-    /**
-     * Create an instance of {@link CourseDetails }
-     * 
-     */
-    public CourseDetails createCourseDetails() {
-        return new CourseDetails();
     }
 
 }
