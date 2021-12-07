@@ -1,11 +1,12 @@
 package com.ifreann.soap.webservices.soapservice.service;
 
+import com.ifreann.soap.webservices.soapservice.Status;
 import com.ifreann.soap.webservices.soapservice.bean.Course;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class CourseDetailsService {
@@ -16,14 +17,14 @@ public class CourseDetailsService {
         Course course1 = new Course(1, "Spring", "10 Steps");
         courses.add(course1);
 
-        Course course2 = new Course(1, "Spring MVC", "10 Examples");
+        Course course2 = new Course(2, "Spring MVC", "10 Examples");
         courses.add(course2);
 
-        Course course3 = new Course(1, "Spring Boot", "6K Studnets");
+        Course course3 = new Course(3, "Spring Boot", "6K Studnets");
         courses.add(course3);
 
-        Course course4 = new Course(1, "Maven", "Popular Maven course");
-        courses.add(course3);
+        Course course4 = new Course(4, "Maven", "Popular Maven course");
+        courses.add(course4);
     }
 
     public Course findById(int id) {
@@ -34,12 +35,18 @@ public class CourseDetailsService {
         return courses;
     }
 
-    public int deleteCourseById(int id) {
-        try {
-            courses = courses.stream().filter(c -> c.getId() != id).collect(Collectors.toList());
-            return 1;
-        } catch (Exception e) {
-            return 0;
+    public Status deleteCourseById(int id) {
+        if (courses == null || courses.isEmpty()) {
+            return Status.FAILURE;
         }
+        Iterator<Course> coursesIt = courses.iterator();
+        while (coursesIt.hasNext()) {
+            Course course = coursesIt.next();
+            if (course.getId() == id) {
+                coursesIt.remove();
+                return Status.SUCCESS;
+            }
+        }
+        return Status.FAILURE;
     }
 }

@@ -2,6 +2,7 @@ package com.ifreann.soap.webservices.soapservice.soap;
 
 import com.ifreann.soap.webservices.soapservice.*;
 import com.ifreann.soap.webservices.soapservice.bean.Course;
+import com.ifreann.soap.webservices.soapservice.exception.CourseNotFoundException;
 import com.ifreann.soap.webservices.soapservice.service.CourseDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -20,9 +21,11 @@ public class CourseDetailsEndpoint {
 
     @PayloadRoot(namespace = "http://ifreann.com/courses", localPart = "GetCourseDetailsRequest")
     @ResponsePayload
-    public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) {
+    public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) throws CourseNotFoundException {
         Course course = courseDetailsService.findById(request.getId());
-
+        if (course == null) {
+            throw new CourseNotFoundException("no course exists with id: " + request.getId());
+        }
         return getCourseDetailsResponse(course);
     }
 
@@ -32,6 +35,14 @@ public class CourseDetailsEndpoint {
         List<Course> courses = courseDetailsService.getAllCourses();
 
         return getAllCourseDetailsResponse(courses);
+    }
+
+    @PayloadRoot(namespace = "http://ifreann.com/courses", localPart = "DeleteCourseDetailsRequest")
+    @ResponsePayload
+    public DeleteCourseDetailsReponse processAllCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
+        DeleteCourseDetailsReponse response = new DeleteCourseDetailsReponse();
+        response.setStatus(courseDetailsService.deleteCourseById(request.getId()));
+        return response;
     }
 
     private GetAllCourseDetailsResponse getAllCourseDetailsResponse(final List<Course> courses) {
